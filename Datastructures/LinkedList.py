@@ -1,10 +1,11 @@
 class LinkedListNode:
 	def __init__(self, value):
+		self.key = ""
 		self.value = value
 		self.next = None
 
 	def __str__(self):
-		return str(self.value)
+		return str(tuple([self.key, self.value]))
 
 class LinkedList:
 	def __init__(self):
@@ -16,6 +17,12 @@ class LinkedList:
 		self.end.next = newNode
 		self.end = self.end.next
 
+	def appendWithKey(self, key, value):
+		newNode = LinkedListNode(value)
+		newNode.key = key
+		self.end.next = newNode
+		self.end = self.end.next
+
 	def search(self, value):
 		p = self.head.next
 		while p:
@@ -24,6 +31,14 @@ class LinkedList:
 			p = p.next
 
 		return -1
+
+	def searchWithKey(self, key):
+		p = self.head.next
+		while p:
+			if p.key == key:
+				return p
+			p = p.next
+		return None
 
 	def delete(self, value):
 		prev = self.head
@@ -37,12 +52,27 @@ class LinkedList:
 
 		return False
 
+	def deleteWithKey(self, key):
+		prev = self.head
+		cur = self.head.next
+		while cur: 
+			if cur.key == key:
+				prev.next = cur.next
+				return True
+			prev = prev.next
+			cur = cur.next
+
+		return False
+
 	def __str__(self):
 		result = ""
 		p = self.head.next
 		while p:
-			result += str(p.value) + ","
+			result += str(p) + "->"
 			p = p.next
+		if result == "":
+			result = "EMPTY"
+
 		return result
 
 
