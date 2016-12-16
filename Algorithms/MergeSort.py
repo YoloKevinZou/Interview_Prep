@@ -26,10 +26,12 @@ def merge(left, right):
 
 if __name__=="__main__":
 
-	list1 = [5,4,9,13,1,6,8, 7]
+	list1 = [5,4,9,13,1,6,8,7]
 	list2 = []
 	list3 = [5,3,4,8,9,2]
+	list4 = [5,4,9,13,1,6,8,7,5]
 
 	print(split(list1))
 	print(split(list2))
 	print(split(list3))
+	print(split(list4))
