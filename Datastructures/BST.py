@@ -141,6 +141,7 @@ if __name__ == "__main__":
 	# print(bst.root)
 	print(bst.levelOrder())
 	bst.delete(bst.root, 9)
+	bst.delete(bst.root, 13)
 	print(bst.levelOrder())
 	# print(bst.inOrder(bst.root))
 	# print(bst.search(bst.root, 9))
